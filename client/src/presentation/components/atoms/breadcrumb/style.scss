@@ -1,0 +1,30 @@
+@import '../../styles/_variables';
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  color: $gray-dark;
+
+  &__link {
+    text-decoration: none;
+    color: $primary-blue;
+    font-weight: 500;
+
+    &:hover {
+      color: darken($primary-blue, 10%);
+    }
+  }
+
+  &__item {
+    color: $gray-medium;
+    font-weight: 500;
+  }
+
+  &__separator {
+    margin: 0 8px;
+    color: $gray-light;
+  }
+}

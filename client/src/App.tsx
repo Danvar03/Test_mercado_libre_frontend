@@ -1,4 +1,4 @@
-import styles from "@/presentation/styles/App.module.scss";
+import styles from '@/presentation/styles/App.module.scss';
 
 const App = () => {
   return (
