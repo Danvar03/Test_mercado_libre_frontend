@@ -1,6 +1,6 @@
 import React from 'react';
 import './Breadcrumb.scss';
-import { BreadcrumbProps } from './type';
+import { BreadcrumbProps } from './Breadcrumb.type';
 
 const Breadcrumb = (props: BreadcrumbProps) => {
   return (
