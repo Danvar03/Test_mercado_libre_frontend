@@ -45,4 +45,3 @@ server/
 ├── .env                   # Variables de entorno (puerto, URL base de la API, etc.)
 ├── package.json           # Dependencias del proyecto
 ├── README.md              # Documentación del servidor
-```
