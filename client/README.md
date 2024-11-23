@@ -22,10 +22,12 @@
 ## 🎯 Funcionalidades Principales
 
 1. **Caja de Búsqueda**:
+
    - Permite al usuario buscar productos por nombre.
    - Navega a los resultados de la búsqueda al enviar el formulario.
 
 2. **Resultados de la Búsqueda**:
+
    - Muestra una lista de hasta 4 productos obtenidos de la API de Mercado Libre.
    - Cada producto incluye:
      - Imagen
@@ -59,23 +61,26 @@
 ## 🚀 Instalación y Ejecución
 
 ### Requisitos Previos
+
 - [Node.js](https://nodejs.org) (v16 o superior)
 - [Git](https://git-scm.com/)
 
 ### Clonar el Repositorio
+
 Clona el repositorio y navega al directorio `client`:
+
 ```bash
 git clone https://github.com/Danvar03/test_mercado_libre_frontend.git
 cd client
 ```
-###  Pre-Requisitos
+
+### Pre-Requisitos
 
 - Tener instalada una version de Node.js igual o mayor a la 22.1.0
 - Tener instalado Podman
 - Tener Yarn
 
-###  Versiones de librerias utilizadas
-
+### Versiones de librerias utilizadas
 
 | Libreria        | Versión |
 | --------------- | ------- |
@@ -113,17 +118,17 @@ Comenzar el servidor
 ```bash
   yarn run start
 ```
-  
 
-  Ejecutar entorno de pruebas unitarias
+Ejecutar entorno de pruebas unitarias
 
 Ejecuta el siguiente comando:
 
 ```bash
   yarn run test
   yarn run coverage
-  
+
 ```
+
 ## Guía para la creación de la imagen de la aplicación
 
 Para crear la imagen de la aplicación, se debe tener instalado correctamente y en ejecución docker. Luego se debe de ubicar a la altura del proyecto y ejecutar el siguiente comando:
