@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use("/api/v1", getItems);
 app.use("/api/v1", getItemById);
-app.use("/api/v1", getItemDescription); // Registra el nuevo endpoint
+app.use("/api/v1", getItemDescription); 
 
 app.use(errorHandler);
 
