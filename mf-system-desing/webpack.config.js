@@ -36,12 +36,8 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.scss$/, 
-        use: [
-          "style-loader",        
-          "css-loader",          
-          "sass-loader",        
-        ],
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
@@ -57,9 +53,8 @@ module.exports = {
       remotes: {},
       exposes: {
         './Header': './src/Header',
-        './HeaderNav': './src/presentation/components/organism/header/HeaderNav',
-
-
+        './HeaderNav':
+          './src/presentation/components/organism/header/HeaderNav',
       },
     }),
 

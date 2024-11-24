@@ -5,7 +5,6 @@ import Content from './Content';
 import '../styles/layout.scss';
 
 const Layout = ({ children }) => {
-
   return (
     <div className="container">
       <Header />
