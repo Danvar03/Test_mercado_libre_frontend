@@ -1,4 +1,4 @@
-@import '@/presentation/styles/_variables.scss';
+@use '../styles/variables' as *;
 
 .title {
   color: $primary-yellow;

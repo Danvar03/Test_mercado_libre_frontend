@@ -37,6 +37,14 @@ module.exports = {
         test: /\.(png|jpg|gif|svg|woff|woff2|eot|ttf|otf)$/,
         type: 'asset/resource',
       },
+      {
+        test: /\.scss$/, 
+        use: [
+          "style-loader",        
+          "css-loader",          
+          "sass-loader",        
+        ],
+      },
     ],
   },
   resolve: {

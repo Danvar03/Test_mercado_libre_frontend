@@ -35,6 +35,14 @@ module.exports = {
         test: /\.(png|jpg|gif|svg|woff|woff2|eot|ttf|otf)$/,
         type: 'asset/resource',
       },
+      {
+        test: /\.scss$/, 
+        use: [
+          "style-loader",        
+          "css-loader",          
+          "sass-loader",        
+        ],
+      },
     ],
   },
 
@@ -49,7 +57,9 @@ module.exports = {
       remotes: {},
       exposes: {
         './Header': './src/Header',
-        './Logo': './src/presentation/components/atoms/logo/Logo',
+        './HeaderNav': './src/presentation/components/organism/header/HeaderNav',
+
+
       },
     }),
 

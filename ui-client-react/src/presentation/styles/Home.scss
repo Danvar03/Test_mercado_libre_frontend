@@ -1,0 +1,22 @@
+@use './variables' as *;
+
+.home {
+  background: linear-gradient(180deg, $primary-yellow 0%, $light-yellow 100%);
+  height: calc(100vh - 80px); 
+  max-height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+}
+
+@media (max-width: 768px) {
+  .home h1 {
+    font-size: 1.5rem;
+  }
+}

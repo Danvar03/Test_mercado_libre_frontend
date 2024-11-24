@@ -1,9 +1,9 @@
-import Logo from './presentation/components/atoms/logo/Logo';
-
+import NavHeader from './presentation/components/organism/header/HeaderNav';
+import './presentation/styles/App.scss';
 function App() {
   return (
     <div className="App">
-      <Logo src="path/to/logo-yellow.png" alt="Logo Yellow" />
+      <NavHeader />
     </div>
   );
 }
