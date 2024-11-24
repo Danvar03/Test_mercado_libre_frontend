@@ -49,6 +49,7 @@ module.exports = {
       remotes: {},
       exposes: {
         './Header': './src/Header',
+        './Logo': './src/presentation/components/atoms/logo/Logo',
       },
     }),
 
