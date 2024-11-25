@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getItems } from '../../../infraestructure/adapters/getItems';
+import { getItemById } from '../../../infraestructure/adapters/getItemById';
 
 export const fetchItems = createAsyncThunk(
   'items/fetchItems',
@@ -13,17 +14,34 @@ export const fetchItems = createAsyncThunk(
   }
 );
 
+export const fetchItemById = createAsyncThunk(
+  'items/fetchItemById',
+  async (id, thunkAPI) => {
+    try {
+      const response = await getItemById(id);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 const itemsSlice = createSlice({
   name: 'items',
   initialState: {
     items: [],
+    currentItems: [],
     categories: [],
+    currentCategories: [],
     pagination: {},
     loading: false,
     error: null,
     query: 'laptop',
     page: 1,
     pageSize: 4,
+    itemById: null,
+    loadingItemById: false,
+    errorItemById: null,
   },
   reducers: {
     setQuery: (state, action) => {
@@ -32,6 +50,10 @@ const itemsSlice = createSlice({
     },
     setPage: (state, action) => {
       state.page = action.payload;
+    },
+    updateCurrentItems: (state) => {
+      state.currentItems = state.items;
+      state.currentCategories = state.categories;
     },
   },
   extraReducers: (builder) => {
@@ -50,8 +72,21 @@ const itemsSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       });
+
+    builder
+      .addCase(fetchItemById.pending, (state) => {
+        state.loadingItemById = true;
+        state.errorItemById = null;
+      })
+      .addCase(fetchItemById.fulfilled, (state, action) => {
+        state.itemById = action.payload;
+      })
+      .addCase(fetchItemById.rejected, (state, action) => {
+        state.loadingItemById = false;
+        state.errorItemById = action.payload;
+      });
   },
 });
 
-export const { setQuery, setPage } = itemsSlice.actions;
+export const { setQuery, setPage, updateCurrentItems } = itemsSlice.actions;
 export default itemsSlice.reducer;

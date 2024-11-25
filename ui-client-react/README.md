@@ -1,70 +1,163 @@
-# Getting Started with Create React App
+# Mercado Libre Frontend Challenge - Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![react-toolkit](https://img.shields.io/badge/React-Library-61DAFB?logo=react&logoColor=white)
+![react-redux](https://img.shields.io/badge/React%20Redux-Library-764ABC?logo=redux&logoColor=white)
+![sass](https://img.shields.io/badge/Sass-CSS%20Preprocessor-CC6699?logo=sass&logoColor=white)
+![vite](https://img.shields.io/badge/Vite-Build%20Tool-646CFF?logo=vite&logoColor=white)
+![typescript](https://img.shields.io/badge/TypeScript-Language-3178C6?logo=typescript&logoColor=white)
 
-## Available Scripts
+## 📖 Tabla de Contenidos
 
-In the project directory, you can run:
+1. [Funcionalidades Principales](#funcionalidades-principales)
+2. [Tecnologías Utilizadas](#tecnologías-utilizadas)
+3. [Instalación y Ejecución](#instalación-y-ejecución)
+   - [Requisitos Previos](#requisitos-previos)
+   - [Clonar el Repositorio](#clonar-el-repositorio)
+   - [Ejecución en Desarrollo](#ejecución-en-desarrollo)
+   - [Build para Producción](#build-para-producción)
+4. [Estructura del Proyecto](#estructura-del-proyecto)
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🎯 Funcionalidades Principales
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Caja de Búsqueda**:
 
-### `npm test`
+   - Permite al usuario buscar productos por nombre.
+   - Navega a los resultados de la búsqueda al enviar el formulario.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Resultados de la Búsqueda**:
 
-### `npm run build`
+   - Muestra una lista de hasta 4 productos obtenidos de la API de Mercado Libre.
+   - Cada producto incluye:
+     - Imagen
+     - Nombre
+     - Precio
+     - Estado (nuevo/usado)
+     - Indicación de envío gratis
+   - Permite navegar al detalle de un producto al hacer clic en él.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Detalle del Producto**:
+   - Muestra información detallada del producto seleccionado:
+     - Imagen
+     - Nombre
+     - Precio
+     - Cantidad vendida
+     - Descripción
+     - Indicador de envío gratis y estado del producto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Tecnologías Utilizadas
 
-### `npm run eject`
+- **React**: Biblioteca para construir interfaces de usuario.
+- **React Redux**: Gestión de estado global.
+- **TypeScript**: Tipado estático para mayor robustez.
+- **Vite**: Herramienta rápida para desarrollo y compilación.
+- **Sass**: Preprocesador de CSS para estilos reutilizables y estructurados.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🚀 Instalación y Ejecución
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Requisitos Previos
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [Node.js](https://nodejs.org) (v16 o superior)
+- [Git](https://git-scm.com/)
 
-## Learn More
+### Clonar el Repositorio
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Clona el repositorio y navega al directorio `client`:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+git clone https://github.com/Danvar03/test_mercado_libre_frontend.git
+cd client
+```
 
-### Code Splitting
+### Pre-Requisitos
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Tener instalada una version de Node.js igual o mayor a la 22.1.0
+- Tener instalado Podman
+- Tener Yarn
 
-### Analyzing the Bundle Size
+### Versiones de librerias utilizadas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| Libreria        | Versión |
+| --------------- | ------- |
+| react           | 18      |
+| typescript      | ^5.5.4  |
+| react-redux     | ^9.1.2  |
+| reduxjs/toolkit | ^2.2.7  |
+| axios           | ^1.7.3  |
+| prettier        | ^3.3.3  |
+| eslint          | 8       |
+| mui/material    | ^5.16.7 |
 
-### Making a Progressive Web App
+## Ejecutar el proyecto de forma local
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Clonar el proyecto
 
-### Advanced Configuration
+```bash
+  git clone
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Ir al directorio donde se clono el proyecto
 
-### Deployment
+```bash
+  cd
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Instalar las dependencias
 
-### `npm run build` fails to minify
+```bash
+  yarn install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Comenzar el servidor
+
+```bash
+  yarn run start
+```
+
+Ejecutar entorno de pruebas unitarias
+
+Ejecuta el siguiente comando:
+
+```bash
+  yarn run test
+  yarn run coverage
+
+```
+
+## Guía para la creación de la imagen de la aplicación
+
+Para crear la imagen de la aplicación, se debe tener instalado correctamente y en ejecución docker. Luego se debe de ubicar a la altura del proyecto y ejecutar el siguiente comando:
+
+```$bash
+docker build -t mercadolibre-challenge-client:1.0 .
+
+```
+
+Esto generará una imagen de la aplicación en su máquina local con el nombre de _name-image-1-0_. Puede cambiar el nombre de dicha imagen si lo desea cambiando el comando por el siguiente:
+
+```$bash
+docker build -t <nombre-de-tu-imagen> .
+```
+
+Luego de creada la imagen exitosamente, se ejecuta el siguiente comando:
+
+```$bash
+docker run -d -p 4001:4001 --name mercadolibre-challenge mercadolibre-challenge:1.0
+```
+
+Este correrá un nuevo contenedor con el nombre de la-imagen-container-1-0\_ a partir de la imagen creada en el paso anterior . Si ha cambiado el nombre de esta imagen por una particular debe de cambiar el comando por el siguiente:
+
+```$bash
+docker run -d -p 4001:4001 --name name-container-1-0 <nombre-de-tu-imagen>
+```
+
+También puede cambiarse el nombre del contenedor a ejecutar si lo desea:
+
+```$bash
+docker run -d -p 4001:4001 --name <nombre-de-tu-contenedor-a-correr> <nombre-de-tu-imagen>
+```
