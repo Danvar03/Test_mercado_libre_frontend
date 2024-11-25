@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setQuery, setPage } from "../application/redux/slices/itemsSlice";
-import { getItems } from "../../infraestructure/adapters/getItems";
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setQuery, setPage } from '../application/redux/slices/itemsSlice';
+import { getItems } from '../../infraestructure/adapters/getItems';
 
 const useItems = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const useItems = () => {
     try {
       const data = await getItems(query, page, pageSize);
       dispatch({
-        type: "items/setItems",
+        type: 'items/setItems',
         payload: {
           items: data.items || [],
           categories: data.categories || [],
@@ -30,16 +30,16 @@ const useItems = () => {
       });
     } catch (err) {
       dispatch({
-        type: "items/setError",
+        type: 'items/setError',
         payload: err.message,
       });
     } finally {
-      dispatch({ type: "items/setLoading", payload: false });
+      dispatch({ type: 'items/setLoading', payload: false });
     }
   };
 
   useEffect(() => {
-    dispatch({ type: "items/setLoading", payload: true });
+    dispatch({ type: 'items/setLoading', payload: true });
     fetchData();
   }, [query, page, pageSize]);
 

@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import Layout from '../../presentation/components/template/Layout';
 import Home from '../../presentation/pages/Home';
+import Search from '../../presentation/components/organism/Search/Search';
 
 export function AppRouter() {
   return (
@@ -14,7 +15,8 @@ export function AppRouter() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="*" element={<Navigate to="/" />} /> */}
+          <Route path="/items" element={<Search />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>
     </Router>

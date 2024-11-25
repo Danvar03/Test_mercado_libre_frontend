@@ -12,9 +12,8 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  auth: searchSlice,   
-   items: itemsSlice,
-
+  auth: searchSlice,
+  items: itemsSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

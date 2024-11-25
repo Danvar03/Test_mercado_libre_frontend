@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getItems } from "../../../infraestructure/adapters/getItems";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { getItems } from '../../../infraestructure/adapters/getItems';
 
 export const fetchItems = createAsyncThunk(
-  "items/fetchItems",
+  'items/fetchItems',
   async ({ query, page, pageSize }, thunkAPI) => {
     try {
       const response = await getItems(query, page, pageSize);
@@ -14,21 +14,21 @@ export const fetchItems = createAsyncThunk(
 );
 
 const itemsSlice = createSlice({
-  name: "items",
+  name: 'items',
   initialState: {
     items: [],
     categories: [],
     pagination: {},
     loading: false,
     error: null,
-    query: "laptop",
+    query: 'laptop',
     page: 1,
     pageSize: 4,
   },
   reducers: {
     setQuery: (state, action) => {
       state.query = action.payload;
-      state.page = 1; 
+      state.page = 1;
     },
     setPage: (state, action) => {
       state.page = action.payload;

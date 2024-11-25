@@ -1,10 +1,9 @@
-import axios from "axios";
-
+import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000/api/v1/",
+  baseURL: 'http://localhost:5000/api/v1/',
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
 });
 
@@ -14,7 +13,7 @@ axiosInstance.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(new Error(error.message));
-  },
+  }
 );
 
 axiosInstance.interceptors.response.use(
@@ -23,24 +22,24 @@ axiosInstance.interceptors.response.use(
       return response;
     }
     return Promise.reject(
-      new Error(`Unexpected status code: ${response.status}`),
+      new Error(`Unexpected status code: ${response.status}`)
     );
   },
   (error) => {
     if (error.response) {
       return Promise.reject(
         new Error(
-          `Error: ${error.response.status} - ${error.response.data.message || error.message}`,
-        ),
+          `Error: ${error.response.status} - ${error.response.data.message || error.message}`
+        )
       );
     }
 
     if (error.request) {
-      return Promise.reject(new Error("No response received from server"));
+      return Promise.reject(new Error('No response received from server'));
     }
 
     return Promise.reject(new Error(`Error: ${error.message}`));
-  },
+  }
 );
 
 export default axiosInstance;

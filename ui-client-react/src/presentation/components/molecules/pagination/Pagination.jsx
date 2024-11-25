@@ -1,21 +1,24 @@
-import React from "react";
+import React from 'react';
+import './Pagination.scss';
 
 const Pagination = ({ pagination, onPageChange }) => (
-  <div>
+  <div className="pagination">
     <button
+      className="pagination__button"
       disabled={pagination.page === 1}
       onClick={() => onPageChange(pagination.page - 1)}
     >
-      Anterior
+      {'<'}
     </button>
-    <span>
-      Pagina {pagination.page} de {pagination.totalPages}
+    <span className="pagination__info">
+      Página {pagination.page} de {pagination.totalPages}
     </span>
     <button
+      className="pagination__button"
       disabled={pagination.page === pagination.totalPages}
       onClick={() => onPageChange(pagination.page + 1)}
     >
-      Siguiente
+      {'>'}
     </button>
   </div>
 );
