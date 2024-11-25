@@ -1,11 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-import Header from './Header';
-
+import NavHeader from './presentation/components/organism/header/HeaderNav';
+import './presentation/styles/App.scss';
 function App() {
   return (
     <div className="App">
-      <Header />
+      <NavHeader />
     </div>
   );
 }

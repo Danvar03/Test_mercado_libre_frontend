@@ -75,7 +75,10 @@ cd test_mercado_libre_frontend
 ## 📁 Estructura del Proyecto
 
 ```bash
-├── client/                 # Código del cliente (React)
-├── server/                 # Código del servidor (Node.js y Express)
+├── ui-client-react/         # Código del cliente (React)
+├── mf-server/               # Código del servidor (Node.js y Express)
+├── mf-system-design/        # Sistema de diseño y componentes reutilizables
+
+
 └── README.md               # Documentación del proyecto
 ```

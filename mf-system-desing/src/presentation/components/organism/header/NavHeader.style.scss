@@ -1,0 +1,23 @@
+@use '../../../styles/_variables.scss' as *;
+
+header {
+  background-color: $primary-yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-area: header;
+}
+
+.nav-header {
+  width: auto;
+  display: flex;
+  padding: 2rem;
+  width: 70%;
+  padding: 0;
+
+  figure img {
+    padding-bottom: 0.2rem;
+    height: 3rem;
+    align-self: right;
+  }
+}
