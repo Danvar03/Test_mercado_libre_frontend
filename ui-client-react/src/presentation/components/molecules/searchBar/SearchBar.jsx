@@ -6,6 +6,7 @@ import CustomAtom from '../../atoms/input/CustomTextField';
 import withSearchHandler from '../../hoc/withSearchHandler';
 
 const SearchBar = ({ query, onSearch, handleSearch }) => {
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const searchValue = event.target.elements.search.value.trim();

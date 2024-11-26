@@ -15,8 +15,8 @@ COPY --chown=1001:root --from=builder /deployments/ /deployments/
 WORKDIR /deployments
 
 ENV NODE_ENV=test
-ENV PORT=4000
+ENV PORT=8081
 ENV NEXT_TELEMETRY_DISABLED=1
 
-EXPOSE 4000
+EXPOSE 8081
 CMD ["yarn", "start"]

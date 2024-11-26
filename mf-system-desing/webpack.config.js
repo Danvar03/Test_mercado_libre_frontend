@@ -16,6 +16,8 @@ module.exports = {
   devServer: {
     port: 4001,
     historyApiFallback: true,
+    hot: false,
+    liveReload: false,
   },
 
   module: {
@@ -50,11 +52,24 @@ module.exports = {
     new ModuleFederationPlugin({
       name: 'remote',
       filename: 'remoteEntry.js',
-      remotes: {},
       exposes: {
         './Header': './src/Header',
         './HeaderNav':
           './src/presentation/components/organism/header/HeaderNav',
+      },
+      shared: {
+        react: {
+          singleton: true,
+          eager: true,
+
+          requiredVersion: '^18.3.1',
+        },
+        'react-dom': {
+          singleton: true,
+          eager: true,
+
+          requiredVersion: '^18.3.1',
+        },
       },
     }),
 

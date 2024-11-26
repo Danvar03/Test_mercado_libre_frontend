@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "type": "module",
+  "description": "Test Práctico - Frontend-Node",
+  "license": "MIT",
+ "scripts": {
+  "start:server": "cd ms-server && yarn start",
+  "build:system": "cd mf-system-desing && yarn build",
+  "start:system": "cd mf-system-desing && yarn start",
+  "build:ui": "cd ui-client-react && yarn build",
+  "start:ui": "cd ui-client-react && yarn start",
+  "start:all": "concurrently \"yarn start:server\" \"yarn build:system && yarn start:system\" \"yarn build:ui && yarn start:ui\""
+}
+}

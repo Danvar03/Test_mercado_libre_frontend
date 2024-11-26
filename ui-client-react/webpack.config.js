@@ -1,19 +1,26 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const webpack = require('webpack');
 
-const deps = require('./package.json').dependencies;
+const dotenv = require('dotenv');
 
+const env = dotenv.config().parsed;
+
+const envKeys = Object.keys(env).reduce((acc, key) => {
+  acc[`process.env.${key}`] = JSON.stringify(env[key]);
+  return acc;
+}, {});
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
-    publicPath: 'http://localhost:4001/',
+    publicPath: 'http://localhost:4000/',
   },
   mode: 'development',
   devServer: {
-    port: 4001,
+    port: 4000,
     historyApiFallback: true,
     static: {
       directory: path.join(__dirname, 'public'),
@@ -48,6 +55,9 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env), 
+    }),
     new ModuleFederationPlugin({
       name: 'container',
       filename: 'remoteEntry.js',
@@ -60,5 +70,7 @@ module.exports = {
       template: './public/index.html',
       filename: 'index.html',
     }),
+    new webpack.DefinePlugin(envKeys),
+
   ],
 };
