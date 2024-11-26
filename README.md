@@ -78,7 +78,5 @@ cd test_mercado_libre_frontend
 ├── ui-client-react/         # Código del cliente (React)
 ├── mf-server/               # Código del servidor (Node.js y Express)
 ├── mf-system-design/        # Sistema de diseño y componentes reutilizables
-
-
 └── README.md               # Documentación del proyecto
 ```

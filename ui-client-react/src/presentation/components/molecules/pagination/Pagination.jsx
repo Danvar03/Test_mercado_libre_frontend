@@ -1,25 +1,28 @@
 import React from 'react';
 import './Pagination.scss';
+import ButtonPrimary from '../../atoms/button/ButtonPrimary';
+import TypographyText from '../../atoms/text/TypographyText';
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 
 const Pagination = ({ pagination, onPageChange }) => (
   <div className="pagination">
-    <button
+    <ButtonPrimary
       className="pagination__button"
       disabled={pagination.page === 1}
       onClick={() => onPageChange(pagination.page - 1)}
     >
-      {'<'}
-    </button>
-    <span className="pagination__info">
+      <ChevronLeft />
+    </ButtonPrimary>
+    <TypographyText className="pagination__info">
       Página {pagination.page} de {pagination.totalPages}
-    </span>
-    <button
+    </TypographyText>
+    <ButtonPrimary
       className="pagination__button"
       disabled={pagination.page === pagination.totalPages}
       onClick={() => onPageChange(pagination.page + 1)}
     >
-      {'>'}
-    </button>
+      <ChevronRight />
+    </ButtonPrimary>
   </div>
 );
 

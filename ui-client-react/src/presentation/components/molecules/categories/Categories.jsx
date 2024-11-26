@@ -1,16 +1,23 @@
 import React from 'react';
+import { Typography, List, ListItem, ListItemText } from '@mui/material';
 
 const Categories = ({ categories }) => (
-  <div>
-    <h2>Categorias</h2>
+  <div style={{ padding: '20px' }}>
+    <Typography variant="h5" gutterBottom>
+      Categorías
+    </Typography>
     {categories.length > 0 ? (
-      <ul>
+      <List>
         {categories.map((category, index) => (
-          <li key={index}>{category}</li>
+          <ListItem key={index} divider>
+            <ListItemText primary={category} />
+          </ListItem>
         ))}
-      </ul>
+      </List>
     ) : (
-      <p>No hay categorias disponible</p>
+      <Typography variant="body1" color="textSecondary">
+        No hay categorías disponibles
+      </Typography>
     )}
   </div>
 );
