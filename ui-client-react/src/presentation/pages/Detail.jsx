@@ -34,7 +34,14 @@ const ItemDetailPage = () => {
     itemById.item;
 
   return (
-    <Box sx={{ padding: '20px', fontFamily: 'Arial, sans-serif', maxWidth: '1200px', margin: '0 auto' }}>
+    <Box
+      sx={{
+        padding: '20px',
+        fontFamily: 'Arial, sans-serif',
+        maxWidth: '1200px',
+        margin: '0 auto',
+      }}
+    >
       {/* Back Button */}
       <Button
         variant="contained"
@@ -75,7 +82,11 @@ const ItemDetailPage = () => {
 
         {/* Details Section */}
         <Grid item xs={12} md={6}>
-          <Typography variant="body2" color="textSecondary" sx={{ marginBottom: 1 }}>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            sx={{ marginBottom: 1 }}
+          >
             {`${condition === 'new' ? 'Nuevo' : 'Usado'} - ${free_shipping ? 'Envío gratis' : ''}`}
           </Typography>
           <Typography variant="h4" sx={{ fontWeight: 'bold', marginBottom: 2 }}>
