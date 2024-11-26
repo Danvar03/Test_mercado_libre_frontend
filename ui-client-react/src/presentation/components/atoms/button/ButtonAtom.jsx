@@ -1,13 +1,7 @@
 import React from 'react';
 import { IconButton } from '@mui/material';
 
-const ButtonAtom = ({
-  onClick,
-  type = 'button',
-  icon,
-  sx = {},
-  ...props
-}) => {
+const ButtonAtom = ({ onClick, type = 'button', icon, sx = {}, ...props }) => {
   return (
     <IconButton
       onClick={onClick}

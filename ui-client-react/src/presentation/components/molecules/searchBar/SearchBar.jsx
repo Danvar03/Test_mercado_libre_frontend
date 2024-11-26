@@ -1,61 +1,40 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Box, TextField, IconButton } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import './SearchBar.scss';
 import logoSearch from '../../../assets/image/ic_Search.png';
 import CustomAtom from '../../atoms/input/CustomTextField';
+import withSearchHandler from '../../hoc/withSearchHandler';
 
-const SearchBar = ({ query, onSearch }) => {
-  const navigate = useNavigate();
-
+const SearchBar = ({ query, onSearch, handleSearch }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const searchValue = event.target.elements.search.value.trim();
     if (searchValue) {
-      onSearch(searchValue);
-      navigate(`/items?search=${encodeURIComponent(searchValue)}`);
+      handleSearch(searchValue, onSearch);
     }
   };
 
   return (
-    <Box
-      component="form"
-      onSubmit={handleSubmit}
-      sx={{ display: 'flex', alignItems: 'center', width: '40%' }}
-    >
-      <CustomAtom
-        name="search"
-        variant="outlined"
-        placeholder="Nunca dejes de buscar"
-        defaultValue={query}
-        fullWidth
-        size="small"
-        sx={{
-          backgroundColor: '#fff',
-          borderRadius: '4px 0 0 4px',
-          width: '38rem',
-        }}
-      />
-
-      <IconButton
-        type="submit"
-        sx={{
-          backgroundColor: 'white',
-          borderRadius: '0 4px 4px 0',
-          padding: '8px',
-          '&:hover': {
-            backgroundColor: '#fff9b1',
-          },
-        }}
-      >
-        <img
-          src={logoSearch}
-          alt="Buscar"
-          style={{ width: '20px', height: '20px' }}
+    <Box component="form" onSubmit={handleSubmit} className="search-bar">
+      <Box className="search-bar__container">
+        <CustomAtom
+          name="search"
+          variant="outlined"
+          placeholder="Nunca dejes de buscar"
+          defaultValue={query}
+          size="small"
+          className="search-bar__input"
         />
-      </IconButton>
+        <IconButton type="submit" className="search-bar__button">
+          <img
+            src={logoSearch}
+            alt="Buscar"
+            style={{ width: '20px', height: '20px' }}
+          />
+        </IconButton>
+      </Box>
     </Box>
   );
 };
 
-export default SearchBar;
+export default withSearchHandler(SearchBar);

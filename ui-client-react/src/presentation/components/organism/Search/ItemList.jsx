@@ -31,12 +31,7 @@ const ItemList = () => {
       />
 
       <ItemListContent items={currentItems} />
-
-      {loading && <p style={{ color: 'gray' }}>Actualizando resultados...</p>}
-
-      {!loading && (
-        <Pagination pagination={pagination} onPageChange={handlePageChange} />
-      )}
+      <Pagination pagination={pagination} onPageChange={handlePageChange} />
     </div>
   );
 };
