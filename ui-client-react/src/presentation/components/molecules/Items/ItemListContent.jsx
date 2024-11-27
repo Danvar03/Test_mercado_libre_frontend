@@ -1,11 +1,17 @@
 import React from 'react';
-import { Card, CardMedia, CardContent, Typography } from '@mui/material';
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  Skeleton,
+} from '@mui/material';
 import './ItemListContent.scss';
 import LogoShipping from '../../../assets/image/ic_shipping.png';
 import { formatPrice } from '../../../../application/utils/formatPrice';
 import { useNavigate } from 'react-router-dom';
 
-const ItemListContent = ({ items }) => {
+const ItemListContent = ({ items, loading }) => {
   const navigate = useNavigate();
 
   const handleClick = (id) => {
@@ -14,7 +20,29 @@ const ItemListContent = ({ items }) => {
 
   return (
     <div className="item-list">
-      {items.length > 0 ? (
+      {loading ? (
+        Array.from({ length: 4 }).map((_, index) => (
+          <Card
+            key={index}
+            className="item-card"
+            sx={{
+              display: 'flex',
+              marginBottom: 2,
+            }}
+          >
+            <Skeleton
+              variant="rectangular"
+              width={150}
+              height={150}
+              sx={{ marginRight: 2 }}
+            />
+            <CardContent className="item-card__details" sx={{ flex: 1 }}>
+              <Skeleton width="60%" height={24} />
+              <Skeleton width="40%" height={24} sx={{ marginTop: 1 }} />
+            </CardContent>
+          </Card>
+        ))
+      ) : items.length > 0 ? (
         items.map((item) => (
           <Card
             key={item.id}

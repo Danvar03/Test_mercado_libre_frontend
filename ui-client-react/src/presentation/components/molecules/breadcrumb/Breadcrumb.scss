@@ -46,3 +46,17 @@
 .item-list {
   margin: 1rem 0;
 }
+
+.breadcrumb__back-button {
+  background-color: $primary-blue;
+  color: $white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}

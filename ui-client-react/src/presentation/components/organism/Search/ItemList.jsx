@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+  setQuery,
+  setPage,
+  updateCurrentItems,
+} from '../../../../application/redux/slices/itemsSlice';
 import Breadcrumb from '../../molecules/breadcrumb/Breadcrumb';
 import Pagination from '../../molecules/pagination/Pagination';
 import './ItemList.scss';
@@ -6,31 +12,21 @@ import useItemSearch from '../../../../application/hooks/useItemSearch';
 import ItemListContent from '../../molecules/Items/ItemListContent';
 
 const ItemList = () => {
-  const { items, categories, pagination, loading, error, handlePageChange } =
+  const { items, categories, pagination, error, handlePageChange } =
     useItemSearch();
-
-  const [currentItems, setCurrentItems] = useState([]);
-  const [currentCategories, setCurrentCategories] = useState([]);
-
-  useEffect(() => {
-    if (!loading && !error) {
-      setCurrentItems(items);
-      setCurrentCategories(categories);
-    }
-  }, [items, categories, loading, error]);
 
   return (
     <div className="search-container">
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       <Breadcrumb
-        items={currentCategories.map((category) => ({
+        items={categories.map((category) => ({
           label: category,
           href: `/items?search=${encodeURIComponent(category)}`,
         }))}
       />
 
-      <ItemListContent items={currentItems} />
+      <ItemListContent items={items} />
       <Pagination pagination={pagination} onPageChange={handlePageChange} />
     </div>
   );

@@ -29,7 +29,7 @@ describe('CustomAtom', () => {
 
     const input = screen.getByPlaceholderText('Prueba');
     expect(input).toBeInTheDocument();
-    expect(input).toHaveStyle('width: 100%'); 
+    expect(input).toHaveStyle('width: 100%');
   });
 
   test('should accept additional properties', () => {

@@ -7,14 +7,14 @@ const deps = require('./package.json').dependencies;
 module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'http://localhost:4001/',
+    publicPath: '/',
     filename: '[name].js',
   },
 
   mode: 'development',
 
   devServer: {
-    port: 4001,
+    port: 8080,
     historyApiFallback: true,
     hot: false,
     liveReload: false,

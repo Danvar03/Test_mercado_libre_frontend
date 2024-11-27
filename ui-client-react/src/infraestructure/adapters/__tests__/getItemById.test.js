@@ -20,7 +20,7 @@ describe('getItemById', () => {
     const mockError = new Error('Network Error');
     axiosInstance.get.mockRejectedValue(mockError);
 
-    await expect(getItemById('123')).rejects.toThrow(
+    await expect(getItemById('MLA1455892105')).rejects.toThrow(
       'Unable to fetch the item. Please try again later.'
     );
     expect(axiosInstance.get).toHaveBeenCalledWith('/items/MLA1455892105');

@@ -9,7 +9,9 @@ describe('axiosInstance', () => {
 
   it('should have the correct baseURL and headers', () => {
     expect(axiosInstance.defaults.baseURL).toBe('http://localhost:4000');
-    expect(axiosInstance.defaults.headers['Content-Type']).toBe('application/json');
+    expect(axiosInstance.defaults.headers['Content-Type']).toBe(
+      'application/json'
+    );
   });
 
   it('should handle request success', async () => {
@@ -19,5 +21,4 @@ describe('axiosInstance', () => {
     const result = await requestInterceptor(config);
     expect(result).toEqual(config);
   });
-
 });

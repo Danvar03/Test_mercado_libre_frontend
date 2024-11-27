@@ -56,13 +56,13 @@ module.exports = {
 
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': JSON.stringify(process.env), 
+      'process.env': JSON.stringify(process.env),
     }),
     new ModuleFederationPlugin({
       name: 'container',
       filename: 'remoteEntry.js',
       remotes: {
-        remote: 'remote@http://localhost:4001/remoteEntry.js',
+        remote: 'remote@http://localhost:8080/remoteEntry.js',
       },
       exposes: {},
     }),
@@ -71,6 +71,5 @@ module.exports = {
       filename: 'index.html',
     }),
     new webpack.DefinePlugin(envKeys),
-
   ],
 };
