@@ -1,23 +1,24 @@
 @use '../../../styles/_variables.scss' as *;
 
-header {
-  background-color: $primary-yellow;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  grid-area: header;
-}
-
 .nav-header {
-  width: auto;
   display: flex;
-  padding: 2rem;
-  width: 70%;
-  padding: 0;
+  align-items: center;
+  background-color: $primary-yellow;
 
-  figure img {
-    padding-bottom: 0.2rem;
+  &__logo-container {
+    display: flex;
+    align-items: center;
+  }
+
+  & img {
     height: 3rem;
-    align-self: right;
+    margin-right: 1rem; 
+  }
+
+  &__title {
+    font-size: 1.5rem; 
+    font-weight: bold;
+    color: #003a70;
   }
 }
+

@@ -72,13 +72,14 @@ const itemsSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       });
-
     builder
       .addCase(fetchItemById.pending, (state) => {
         state.loadingItemById = true;
         state.errorItemById = null;
+        state.itemById = null;
       })
       .addCase(fetchItemById.fulfilled, (state, action) => {
+        state.loadingItemById = false;
         state.itemById = action.payload;
       })
       .addCase(fetchItemById.rejected, (state, action) => {

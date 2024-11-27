@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
 const withSearchHandler = (WrappedComponent) => {
   return (props) => {
     const navigate = useNavigate();
@@ -13,7 +12,8 @@ const withSearchHandler = (WrappedComponent) => {
         return;
       }
 
-      onSearch(searchValue);
+      if (onSearch) onSearch(searchValue);
+
       navigate(`/items?search=${encodeURIComponent(searchValue)}`);
     };
 

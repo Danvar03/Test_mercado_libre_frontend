@@ -7,7 +7,6 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
   (config) => {
     config.headers["Content-Type"] = "application/json";
-    console.log("Request sent:", config);
     return config;
   },
   (error) => {
@@ -18,7 +17,6 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (response) => {
-    console.log("Response received:", response);
     return response;
   },
   (error) => {

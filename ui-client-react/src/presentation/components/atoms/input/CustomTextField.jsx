@@ -19,7 +19,6 @@ const CustomAtom = ({
       sx={{
         backgroundColor: '#fff',
         borderRadius: '4px 0 0 4px',
-        width: '38rem',
         ...sx,
       }}
       {...props}

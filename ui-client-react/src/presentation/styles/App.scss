@@ -22,3 +22,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.layout__header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  background-color: $primary-yellow;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.layout__header-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.layout__header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layout__header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 600px;
+}

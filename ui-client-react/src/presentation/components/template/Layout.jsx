@@ -8,19 +8,24 @@ const HeaderNav =
     : null;
 
 const Layout = ({ children }) => {
-  const handleSearch = (query) => {
-    console.log('Search query:', query);
-  };
-
   return (
     <div className="layout">
       <header className="layout__header">
-        <Suspense fallback={<SkeletonLoader height="80px" width="100%" />}>
-          {HeaderNav ? <HeaderNav /> : <div>Loading Header...</div>}
-        </Suspense>
-        <SearchBar onSearch={handleSearch} />
+        <div className="layout__header-left">
+          <Suspense fallback={<SkeletonLoader height="80px" width="100%" />}>
+            {HeaderNav ? (
+              <HeaderNav />
+            ) : (
+              <div className="layout__title-container">
+                <h1 className="layout__title">Mercado Libre 25 Años</h1>
+              </div>
+            )}
+          </Suspense>
+        </div>
+        <div className="layout__header-center">
+          <SearchBar />
+        </div>
       </header>
-
       <main className="layout__main">{children}</main>
     </div>
   );
