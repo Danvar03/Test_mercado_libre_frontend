@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: process.env.MERCADO_LIBRE_API,
+  baseURL: "https://api.mercadolibre.com",
 });
 
 axiosInstance.interceptors.request.use(
