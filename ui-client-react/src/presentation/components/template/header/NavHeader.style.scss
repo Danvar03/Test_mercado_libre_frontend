@@ -1,5 +1,4 @@
 @use '../../../styles/_variables.scss' as *;
-
 .nav-header {
   display: flex;
   align-items: center;
@@ -8,6 +7,7 @@
   &__logo-container {
     display: flex;
     align-items: center;
+
   }
 
   & img {
@@ -21,7 +21,9 @@
     color: #003a70;
 
     @media (max-width: 768px) {
-      display: none; 
+      display: none;
     }
   }
 }
+
+

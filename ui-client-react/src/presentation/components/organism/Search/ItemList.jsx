@@ -10,6 +10,7 @@ import Pagination from '../../molecules/pagination/Pagination';
 import './ItemList.scss';
 import useItemSearch from '../../../../application/hooks/useItemSearch';
 import ItemListContent from '../../molecules/Items/ItemListContent';
+import { loadConfig } from '@babel/core/lib/config/files';
 
 const ItemList = () => {
   const { items, categories, pagination, error, handlePageChange, loading } =
@@ -17,8 +18,6 @@ const ItemList = () => {
 
   return (
     <div className="search-container">
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-
       <Breadcrumb
         items={categories.map((category) => ({
           label: category,
@@ -27,7 +26,9 @@ const ItemList = () => {
       />
 
       <ItemListContent items={items} loading={loading} />
-      <Pagination pagination={pagination} onPageChange={handlePageChange} />
+      {items.length > 0 && (
+        <Pagination pagination={pagination} onPageChange={handlePageChange} />
+      )}
     </div>
   );
 };

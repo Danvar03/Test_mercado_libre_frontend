@@ -15,5 +15,10 @@ module.exports = {
     '@/(.*)$': '<rootDir>/src/$1',
   },
   testEnvironment: 'jsdom',
-  coveragePathIgnorePatterns: ['<rootDir>/src/setupTests.js'],
+  coveragePathIgnorePatterns: ['<rootDir>/src/setupTests.js',
+    '<rootDir>/src/presentation/pages*',
+    '<rootDir>/src/index.js*',
+
+
+  ],
 };

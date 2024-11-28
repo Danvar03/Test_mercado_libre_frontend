@@ -36,7 +36,7 @@ const itemsSlice = createSlice({
     pagination: {},
     query: '',
     page: 1,
-    pageSize: 10,
+    pageSize: 4,
     loading: false,
     error: null,
   },
@@ -98,4 +98,4 @@ const itemsSlice = createSlice({
 
 export const { setQuery, setPage, resetItems, setCurrentCategories } =
   itemsSlice.actions;
-export default itemsSlice.reducer;import React from 'react';
+export default itemsSlice.reducer;

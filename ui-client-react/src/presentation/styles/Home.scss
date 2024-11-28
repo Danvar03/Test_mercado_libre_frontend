@@ -1,10 +1,11 @@
 @use './variables' as *;
+
 .home {
   display: flex;
+  flex-direction: column; 
   justify-content: center;
   align-items: center;
   background: linear-gradient(180deg, #ffe600 0%, #fffde7 100%);
-  height: 100vh;
 
   &__content {
     display: flex;
@@ -16,6 +17,11 @@
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
+      justify-content: center; 
+      align-items: center;
+    
+      margin-top: 4rem;
+      
 
       .home__icon {
         display: flex;
@@ -39,6 +45,37 @@
           font-weight: bold;
         }
       }
+    }
+  }
+}
+
+.footer {
+  color: #333;
+  padding: 1rem;
+  text-align: center;
+  font-size: 14px;
+  width: 100%; /* Asegúrate de que ocupe el ancho completo */
+  margin-top: auto; /* Empuja el footer hacia abajo si hay espacio disponible */
+  
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__text {
+    margin: 0;
+  }
+
+  &__link {
+    color: #3483fa;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #0056b3;
     }
   }
 }

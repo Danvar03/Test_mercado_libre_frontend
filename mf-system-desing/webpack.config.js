@@ -7,14 +7,14 @@ const deps = require('./package.json').dependencies;
 module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'http://localhost:8080/',
+    publicPath: 'http://localhost:4001/',
     filename: '[name].js',
   },
 
   mode: 'development',
 
   devServer: {
-    port: 8080,
+    port: 4001,
     historyApiFallback: true,
     hot: false,
     liveReload: false,
@@ -56,6 +56,7 @@ module.exports = {
         './Header': './src/Header',
         './HeaderNav':
           './src/presentation/components/organism/header/HeaderNav',
+        './Footer': './src/presentation/components/organism/footer/Footer',
       },
       shared: {
         react: {
