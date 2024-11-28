@@ -18,6 +18,7 @@ const ItemListContent = ({ items, loading }) => {
     navigate(`/items/${id}`);
   };
 
+  
   return (
     <div className="item-list">
       {loading ? (
