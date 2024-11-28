@@ -76,3 +76,17 @@
     font-weight: bold;
   }
 }
+
+.item-card {
+  background-color: #f8f9fa; 
+  display: flex;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+
+  .item-card__details {
+    .MuiSkeleton-root {
+      background-color: $separator-color; 
+    }
+  }
+}
+

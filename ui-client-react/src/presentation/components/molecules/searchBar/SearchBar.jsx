@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Box, IconButton } from '@mui/material';
+import { Box, IconButton, useMediaQuery } from '@mui/material';
 import './SearchBar.scss';
 import logoSearch from '../../../assets/image/ic_Search.png';
 import CustomAtom from '../../atoms/input/CustomTextField';
@@ -7,6 +7,7 @@ import withSearchHandler from '../../atoms/hoc/withSearchHandler';
 
 const SearchBar = ({ query, onSearch, handleSearch }) => {
   const inputRef = useRef();
+  const isMobile = useMediaQuery('(max-width:768px)'); 
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,9 +22,9 @@ const SearchBar = ({ query, onSearch, handleSearch }) => {
       <Box className="search-bar__container">
         <CustomAtom
           name="search"
-          inputRef={inputRef} 
+          inputRef={inputRef}
           variant="outlined"
-          placeholder="Nunca dejes de buscar"
+          placeholder={isMobile ? '' : 'Nunca dejes de buscar'}
           defaultValue={query}
           size="small"
         />

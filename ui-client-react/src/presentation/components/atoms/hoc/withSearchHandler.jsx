@@ -1,20 +1,28 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
 const withSearchHandler = (WrappedComponent) => {
   return (props) => {
     const navigate = useNavigate();
 
-    const handleSearch = (searchValue, onSearch) => {
+    const searchStrategies = {
+      byId: (value) => `/items/${value}`,
+      byQuery: (value) => `/items?search=${encodeURIComponent(value)}`,
+    };
+
+    const determineStrategy = (searchValue) => {
+      if (searchValue.startsWith('MLA')) {
+        return 'byId';
+      }
+      return 'byQuery';
+    };
+
+    const handleSearch = (searchValue) => {
       if (!searchValue) return;
 
-      if (searchValue.startsWith('MLA')) {
-        navigate(`/items/${searchValue}`);
-        return;
-      }
+      const strategy = determineStrategy(searchValue);
 
-      if (onSearch) onSearch(searchValue);
-
-      navigate(`/items?search=${encodeURIComponent(searchValue)}`);
+      navigate(searchStrategies[strategy](searchValue));
     };
 
     return <WrappedComponent {...props} handleSearch={handleSearch} />;
