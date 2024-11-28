@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
-import useCategories from '../../../../application/hooks/useCategories';
-import useItemSearch from '../../../../application/hooks/useItemSearch';
 import Breadcrumb from '../../molecules/breadcrumb/Breadcrumb';
 import ItemDetails from '../../molecules/item-details/ItemDetails';
 import ItemImage from '../../molecules/Item-image-detail/ItemImage';
 import ItemDescription from '../../molecules/item-description/ItemDescription';
 import { fetchItemById } from '../../../../application/redux/slices/itemsSlice';
+import useCategories from '../../../../application/hooks/useCategories';
+import useItemSearch from '../../../../application/hooks/useItemSearch';
 
 const DetailsContent = () => {
   const { id } = useParams();

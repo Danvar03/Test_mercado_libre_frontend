@@ -16,7 +16,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
-    publicPath: 'http://localhost:4000/',
+    publicPath: 'auto',
   },
   mode: 'development',
   devServer: {
@@ -62,7 +62,7 @@ module.exports = {
       name: 'container',
       filename: 'remoteEntry.js',
       remotes: {
-        remote: 'remote@http://localhost:8080/remoteEntry.js',
+        remote: 'remote@http://localhost:4001/remoteEntry.js',
       },
       exposes: {},
     }),

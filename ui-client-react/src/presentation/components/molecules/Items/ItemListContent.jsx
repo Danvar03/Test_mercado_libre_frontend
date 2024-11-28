@@ -28,17 +28,20 @@ const ItemListContent = ({ items, loading }) => {
             sx={{
               display: 'flex',
               marginBottom: 2,
+              padding: 2,
+              alignItems: 'center',
             }}
           >
             <Skeleton
               variant="rectangular"
-              width={150}
-              height={150}
-              sx={{ marginRight: 2 }}
+              width={120}
+              height={120}
+              sx={{ marginRight: 2, borderRadius: 1, bgcolor: '#999' }}
             />
             <CardContent className="item-card__details" sx={{ flex: 1 }}>
-              <Skeleton width="60%" height={24} />
-              <Skeleton width="40%" height={24} sx={{ marginTop: 1 }} />
+              <Skeleton width="80%" height={24} sx={{ marginBottom: 1 }} />
+              <Skeleton width="60%" height={20} sx={{ marginBottom: 1 }} />
+              <Skeleton width="40%" height={32} />
             </CardContent>
           </Card>
         ))
@@ -52,6 +55,7 @@ const ItemListContent = ({ items, loading }) => {
               display: 'flex',
               marginBottom: 2,
               cursor: 'pointer',
+              alignItems: 'center',
             }}
           >
             <CardMedia
@@ -60,9 +64,11 @@ const ItemListContent = ({ items, loading }) => {
               image={item.picture}
               alt={item.title}
               sx={{
-                width: 150,
-                height: 150,
+                width: 120,
+                height: 120,
                 objectFit: 'cover',
+                borderRadius: 1,
+                marginRight: 2,
               }}
             />
             <CardContent className="item-card__details" sx={{ flex: 1 }}>
@@ -70,7 +76,11 @@ const ItemListContent = ({ items, loading }) => {
                 <Typography
                   variant="h6"
                   className="item-card__price"
-                  sx={{ fontWeight: 'bold', marginBottom: 1, fontSize: 16 }}
+                  sx={{
+                    fontWeight: 'bold',
+                    marginBottom: 1,
+                    fontSize: 16,
+                  }}
                 >
                   {formatPrice(item.price)}
                 </Typography>
