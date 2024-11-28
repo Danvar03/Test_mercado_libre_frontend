@@ -161,3 +161,29 @@ También puede cambiarse el nombre del contenedor a ejecutar si lo desea:
 ```$bash
 docker run -d -p 4001:4001 --name <nombre-de-tu-contenedor-a-correr> <nombre-de-tu-imagen>
 ```
+
+## Cliente (UI)
+
+## Navega al directorio del cliente
+
+```bash
+cd ui-client-react
+```
+
+## Instala las dependencias
+
+```bash
+yarn install
+```
+
+## Genera la build del cliente:
+
+```bash
+yarn build
+```
+
+## Inicia el sistema de cliente:
+
+```bash
+yarn start
+```
