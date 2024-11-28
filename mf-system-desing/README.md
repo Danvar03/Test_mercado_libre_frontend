@@ -150,3 +150,29 @@ También puede cambiarse el nombre del contenedor a ejecutar si lo desea:
 ```$bash
 docker run -d -p 4000:4000 --name <nombre-de-tu-contenedor-a-correr> <nombre-de-tu-imagen>
 ```
+
+## Sistema de Diseño
+
+## Navega al directorio del sistema de diseño
+
+```bash
+cd mf-system-design
+```
+
+## Instala las dependencias
+
+```bash
+yarn install
+```
+
+## Genera la build del sistema de diseño:
+
+```bash
+yarn build
+```
+
+## Inicia el sistema de diseño:
+
+```bash
+yarn start
+```

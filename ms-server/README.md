@@ -45,4 +45,59 @@ server/
 ├── .env                   # Variables de entorno (puerto, URL base de la API, etc.)
 ├── package.json           # Dependencias del proyecto
 ├── README.md              # Documentación del servidor
+
+```
+
+## Guía para la creación de la imagen de la aplicación
+
+Para crear la imagen de la aplicación, se debe tener instalado correctamente y en ejecución docker. Luego se debe de ubicar a la altura del proyecto y ejecutar el siguiente comando:
+
+```$bash
+docker build -t mercadolibre-challenge-server:1.0 .
+
+```
+
+Esto generará una imagen de la aplicación en su máquina local con el nombre de _name-image-1-0_. Puede cambiar el nombre de dicha imagen si lo desea cambiando el comando por el siguiente:
+
+```$bash
+docker build -t <nombre-de-tu-imagen> .
+```
+
+Luego de creada la imagen exitosamente, se ejecuta el siguiente comando:
+
+```$bash
+docker run -d -p 8080:8080 --name mercadolibre-challenge mercadolibre-challenge:1.0
+```
+
+Este correrá un nuevo contenedor con el nombre de la-imagen-container-1-0\_ a partir de la imagen creada en el paso anterior . Si ha cambiado el nombre de esta imagen por una particular debe de cambiar el comando por el siguiente:
+
+```$bash
+docker run -d -p 8080:8080 --name name-container-1-0 <nombre-de-tu-imagen>
+```
+
+También puede cambiarse el nombre del contenedor a ejecutar si lo desea:
+
+```$bash
+docker run -d -p 8080:8080 --name <nombre-de-tu-contenedor-a-correr> <nombre-de-tu-imagen>
+```
+
+
+## Servidor (API)
+
+## Navega al directorio del Servidor
+
+```bash
+cd mf-server
+```
+
+## Instala las dependencias
+
+```bash
+yarn install
+```
+
+## Inicia el Servidor:
+
+```bash
+yarn start
 ```
