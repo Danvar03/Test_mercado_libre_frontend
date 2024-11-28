@@ -33,16 +33,15 @@ const ItemListContent = ({ items, loading }) => {
               alignItems: 'center',
             }}
           >
-            <Skeleton
+             <Skeleton
               variant="rectangular"
-              width={120}
-              height={120}
-              sx={{ marginRight: 2, borderRadius: 1, bgcolor: '#999' }}
+              width={60}
+              height={60}
             />
-            <CardContent className="item-card__details" sx={{ flex: 1 }}>
-              <Skeleton width="80%" height={24} sx={{ marginBottom: 1 }} />
-              <Skeleton width="60%" height={20} sx={{ marginBottom: 1 }} />
-              <Skeleton width="40%" height={32} />
+            <CardContent className="item-card__details" >
+              <Skeleton width="80%" height={14} />
+              <Skeleton width="60%" height={14} />
+              <Skeleton width="40%" height={14} />
             </CardContent>
           </Card>
         ))
