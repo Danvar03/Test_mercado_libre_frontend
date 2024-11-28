@@ -30,18 +30,15 @@ const itemsSlice = createSlice({
   name: 'items',
   initialState: {
     items: [],
-    currentItems: [],
+    itemDetails: null,
     categories: [],
     currentCategories: [],
     pagination: {},
+    query: '',
+    page: 1,
+    pageSize: 10,
     loading: false,
     error: null,
-    query: 'laptop',
-    page: 1,
-    pageSize: 4,
-    itemById: null,
-    loadingItemById: false,
-    errorItemById: null,
   },
   reducers: {
     setQuery: (state, action) => {
@@ -51,9 +48,17 @@ const itemsSlice = createSlice({
     setPage: (state, action) => {
       state.page = action.payload;
     },
-    updateCurrentItems: (state) => {
-      state.currentItems = state.items;
-      state.currentCategories = state.categories;
+    resetItems: (state) => {
+      state.items = [];
+      state.categories = [];
+      state.pagination = {};
+      state.error = null;
+    },
+    setCategories: (state, action) => {
+      state.categories = action.payload;
+    },
+    setCurrentCategories: (state, action) => {
+      state.currentCategories = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -72,15 +77,17 @@ const itemsSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       });
+
+    builder.addCase(fetchItemById.pending, (state) => {
+      state.loadingItemById = true;
+      state.errorItemById = null;
+      state.itemById = null;
+    });
     builder
-      .addCase(fetchItemById.pending, (state) => {
-        state.loadingItemById = true;
-        state.errorItemById = null;
-        state.itemById = null;
-      })
       .addCase(fetchItemById.fulfilled, (state, action) => {
         state.loadingItemById = false;
         state.itemById = action.payload;
+        state.categories = action.payload.categories || [];
       })
       .addCase(fetchItemById.rejected, (state, action) => {
         state.loadingItemById = false;
@@ -89,5 +96,6 @@ const itemsSlice = createSlice({
   },
 });
 
-export const { setQuery, setPage, updateCurrentItems } = itemsSlice.actions;
-export default itemsSlice.reducer;
+export const { setQuery, setPage, resetItems, setCurrentCategories } =
+  itemsSlice.actions;
+export default itemsSlice.reducer;import React from 'react';

@@ -7,10 +7,9 @@ const useItemSearch = () => {
   const dispatch = useDispatch();
   const [searchParams] = useSearchParams();
   const searchParam = searchParams.get('search');
+
   const {
     items,
-    currentItems,
-    currentCategories,
     categories,
     pagination,
     loading,
@@ -21,25 +20,25 @@ const useItemSearch = () => {
   } = useSelector((state) => state.items);
 
   useEffect(() => {
-    if (searchParam) {
-      dispatch(setQuery(searchParam));
+    if (!searchParam) {
+      dispatch(setQuery(''));
+      dispatch(fetchItems({ query: '', page: 1, pageSize }));
+      return;
     }
-  }, [searchParam, dispatch]);
 
-  useEffect(() => {
-    if (query) {
-      dispatch(fetchItems({ query, page, pageSize }));
+    if (query !== searchParam) {
+      dispatch(setQuery(searchParam));
+      dispatch(fetchItems({ query: searchParam, page: 1, pageSize }));
     }
-  }, [query, page, pageSize, dispatch]);
+  }, [searchParam, dispatch, query, pageSize]);
 
   const handlePageChange = (newPage) => {
     dispatch(setPage(newPage));
+    dispatch(fetchItems({ query, page: newPage, pageSize }));
   };
 
   return {
     items,
-    currentItems,
-    currentCategories,
     categories,
     pagination,
     loading,
@@ -47,5 +46,4 @@ const useItemSearch = () => {
     handlePageChange,
   };
 };
-
 export default useItemSearch;

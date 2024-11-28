@@ -12,7 +12,7 @@ import useItemSearch from '../../../../application/hooks/useItemSearch';
 import ItemListContent from '../../molecules/Items/ItemListContent';
 
 const ItemList = () => {
-  const { items, categories, pagination, error, handlePageChange } =
+  const { items, categories, pagination, error, handlePageChange, loading } =
     useItemSearch();
 
   return (
@@ -26,7 +26,7 @@ const ItemList = () => {
         }))}
       />
 
-      <ItemListContent items={items} />
+      <ItemListContent items={items} loading={loading} />
       <Pagination pagination={pagination} onPageChange={handlePageChange} />
     </div>
   );

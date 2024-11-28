@@ -53,5 +53,4 @@ const useItems = () => {
     setPage: (page) => dispatch(setPage(page)),
   };
 };
-
 export default useItems;

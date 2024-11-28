@@ -3,7 +3,6 @@ import '../header/NavHeader.style.scss';
 import Logo from '../../atoms/logo/Logo';
 
 
-
 const NavHeader = () => {
   return (
     <header>

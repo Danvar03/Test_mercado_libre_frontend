@@ -7,7 +7,7 @@ const deps = require('./package.json').dependencies;
 module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/',
+    publicPath: 'http://localhost:8080/',
     filename: '[name].js',
   },
 

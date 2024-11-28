@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
-import useCategories from '../../../../application/hooks/useCategories';
-import useItemSearch from '../../../../application/hooks/useItemSearch';
 import Breadcrumb from '../../molecules/breadcrumb/Breadcrumb';
 import ItemDetails from '../../molecules/item-details/ItemDetails';
 import ItemImage from '../../molecules/Item-image-detail/ItemImage';
@@ -13,16 +10,34 @@ import { fetchItemById } from '../../../../application/redux/slices/itemsSlice';
 const DetailsContent = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { itemById, loadingItemById } = useSelector((state) => state.items);
-  const { categories, loading, error } = useItemSearch();
-  const { breadcrumbItems } = useCategories(categories, loading, error);
+  const [localCategories, setLocalCategories] = useState([]);
 
+  const { itemById, loadingItemById, categories } = useSelector((state) => ({
+    itemById: state.items.itemById,
+    loadingItemById: state.items.loadingItemById,
+    categories: state.items.categories,
+  }));
+
+  // Cargar el detalle del ítem
   useEffect(() => {
-    dispatch(fetchItemById(id));
+    if (id) {
+      dispatch(fetchItemById(id));
+    }
   }, [dispatch, id]);
 
-  const { title, price, picture, condition, free_shipping, description } =
-    itemById?.item || {};
+  // Sincronizar categorías locales para evitar parpadeos
+  useEffect(() => {
+    if (categories.length > 0) {
+      setLocalCategories(categories);
+    }
+  }, [categories]);
+
+  const breadcrumbItems = localCategories.map((category) => ({
+    label: category,
+    href: `/items?search=${encodeURIComponent(category)}`,
+  }));
+
+  const { title, price, picture, condition, free_shipping, description } = itemById?.item || {};
 
   return (
     <div className="item-detail-page">
