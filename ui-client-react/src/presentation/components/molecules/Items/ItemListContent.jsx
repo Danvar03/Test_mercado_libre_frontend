@@ -33,7 +33,7 @@ const ItemListContent = ({ items, loading }) => {
               alignItems: 'center',
             }}
           >
-            <Skeleton
+             <Skeleton
               variant="rectangular"
               width={60}
               height={60}
